@@ -107,6 +107,29 @@ void nqueen(vector<vector<int>> &board,int sr,int sc,int qpsf,string asf)
 	}
 }
 
+// ALTERNATE APPROACH
+
+void queen2(vector<vector<int>> &board,int row,string asf)
+{
+
+	if(row==board.size())
+	{
+		cout<<asf<<"\n";
+		return;
+	}
+
+	for(int col=0;col<board.size();col++)
+	{
+		if(isvalidtoplace(board,row,col)==true)
+		{
+			board[row][col]=1;
+			queen2(board,row+1,asf+ to_string(row) + "-" + to_string(col) + ", ");
+			board[row][col]=0;
+		}
+	}
+}
+
+
 int main(){
 
     #ifndef ONLINE_JUDGE
@@ -118,6 +141,6 @@ int main(){
     int n;
     cin>>n;
     vector<vector<int>> board(n,vector<int>(n,0));
-    nqueen(board,0,0,0,"");
+    queen2(board,0,"");
 
 }
