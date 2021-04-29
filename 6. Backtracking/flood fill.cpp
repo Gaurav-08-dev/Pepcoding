@@ -4,7 +4,7 @@ using namespace std;
 
 
 vector<int> rdir={-1,0,1,0};
-vector<int> cdir={-0,-1,0,1};
+vector<int> cdir={0,-1,0,1};
 char moves[]={'t','l','d','r'};
 
 void floodfill(vector<vector<int>> &maze,int sr,int sc,int n,int m,string asf)

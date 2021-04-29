@@ -69,7 +69,6 @@ void knight(vector<vector<int>> &board,int n,int r, int c,int jsf)
 	{
 		int rr= r + xdir[d];
 		int cc= c + ydir[d];
-
 		if(rr>=0 and rr<n and cc>=0 and cc<n and board[rr][cc]==0)
 		{board[rr][cc]=jsf+1; 
 			knight(board,n,rr,cc,jsf+1);
