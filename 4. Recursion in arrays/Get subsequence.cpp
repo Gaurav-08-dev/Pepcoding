@@ -17,6 +17,12 @@ vector<string> gss(string s){
     vector<string> ans;
 
     cout<<"_________________"<<"\n\n\n";
+    cout<<"rres: ";
+    for(auto s:rres)
+    {
+        cout<<s;
+    }
+    cout<<"\n\n";
 
     for(auto s: rres)
     {
