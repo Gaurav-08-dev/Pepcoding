@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void print(vector<int> &arr); 
+
+
 
 // used for swapping ith and jth elements of array
 void swap(vector<int> &arr, int i, int j) 
@@ -24,6 +27,8 @@ void insertionSort(vector<int> &arr)
 			swap(arr,j,j-1);
 			j--;
 		}
+		// print(arr);
+		// cout<<"\n";
 	}
 }
 
@@ -32,7 +37,7 @@ void print(vector<int> &arr)
 {
 	for (int i = 0; i < arr.size(); i++) 
 	{
-	  cout<<arr[i]<<"\n";
+	  cout<<arr[i]<<" ";
 	}
 }
 

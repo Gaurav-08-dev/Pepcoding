@@ -1,7 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+void print(vector<int> &arr)
+{
+for(auto i: arr)
+	{
+		cout<<i<<" ";
+	}
+}
 void selection_sort(vector<int> &arr)
 {
 	int n=arr.size();
@@ -15,15 +21,16 @@ void selection_sort(vector<int> &arr)
 				minIndex=j;
 			}
 		}
+		// cout<<arr[minIndex]<<"\n";
+
 		int temp=arr[i];
 		arr[i]=arr[minIndex];
 		arr[minIndex]=temp;
+		// print(arr);
+		// cout<<"\n";
 	}
-
-	for(auto i: arr)
-	{
-		cout<<i<<" ";
-	}
+		print(arr);
+		
 }
 
 void solve()
