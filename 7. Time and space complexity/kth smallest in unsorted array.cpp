@@ -31,6 +31,7 @@ int partition_index(vector<int > &arr,int low, int high)
 
 	return j-1;
 }
+
 int randomPartiotion(vector<int> &arr, int low,int high)
 {
 	int n=high - low  + 1;
@@ -104,7 +105,8 @@ process which uses last element as pivot. */
 
 // ALSO CALLED RANDOMIZED QUICK SELECT
 
-
+// FOR Kth largest change the condition to arr[i]>=pivot at line 20 :
+ 
 
 
 

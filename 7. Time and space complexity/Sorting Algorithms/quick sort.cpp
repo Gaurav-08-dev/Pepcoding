@@ -14,7 +14,7 @@ void print(vector<int> &arr) {
 
 void swap(vector<int>&arr, int i, int j)
 {
-	cout<<"Swapping " << arr[i] << " and " << arr[j]<<"\n";
+	// cout<<"Swapping " << arr[i] << " and " << arr[j]<<"\n";
 	int temp = arr[i];
 	arr[i] = arr[j];
 	arr[j] = temp;
@@ -23,14 +23,14 @@ void swap(vector<int>&arr, int i, int j)
 
 int partition_index(vector<int> &arr,int pivot,int low,int high)
 {
-	cout<<"low -> "<<low<<"\n";
-	cout<<"high -> "<<high<<"\n";
-	cout<<"pivot -> "<<pivot<<"\n";
+	// cout<<"low -> "<<low<<"\n";
+	// cout<<"high -> "<<high<<"\n";
+	// cout<<"pivot -> "<<pivot<<"\n";
 	int i=low,j=low;
 
 	while(i<=high)
 	{
-		if(arr[i]<=pivot)
+		if(arr[i]>=pivot)
 		{
 			swap(arr,i,j);
 			i++;
@@ -41,7 +41,7 @@ int partition_index(vector<int> &arr,int pivot,int low,int high)
 			i++;
 		}
 	}
-	cout<<"pivot index -> "<<j-1<<"\n";
+	// cout<<"pivot index -> "<<j-1<<"\n";
 	return j-1;
 }
 
@@ -52,7 +52,8 @@ void quicksort(vector<int> &arr,int low,int high)
 	{
 		int pivot=arr[high];
 		int pivot_index=partition_index(arr, pivot,low,high);
-		print(arr);
+		cout<<pivot_index<<"\n";
+		print(arr);cout<<"\n";
 		quicksort(arr,low,pivot_index-1);
 		quicksort(arr,pivot_index+1,high);
 	}
