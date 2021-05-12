@@ -1,8 +1,8 @@
-#include<bits/stdc++.h>
-using namespace std;
+	#include<bits/stdc++.h>
+	using namespace std;
 
-void candidate(vector<vector<int>> &arr)
-{
+	void candidate(vector<vector<int>> &arr)
+	{
 	stack<int> s;
 
 	for(int i=0;i<arr.size();i++)
@@ -33,6 +33,7 @@ void candidate(vector<vector<int>> &arr)
 
 	int cand=s.top();
 	s.pop();
+	// cout<<cand<<"\n";
 
 	for(int i=0;i<arr[0].size();i++)
 	{
@@ -42,11 +43,11 @@ void candidate(vector<vector<int>> &arr)
 			return ;
 		}
 	}
-
+ 
 
 	for(int i=0;i<arr.size();i++)
 	{
-		if(i!=cand and arr[i][cand]==1)
+		if(i!=cand and arr[i][cand]==0)
 		{
 			cout<<"none"<<"\n";
 			return ;
@@ -54,50 +55,56 @@ void candidate(vector<vector<int>> &arr)
 	}
 
 	cout<<cand<<"\n";
-}
+	}
 
 
-void solve()
-{
+
+
+// TWO POINTER APPROACH 
+	
+	void solve()
+	{
 	int n;
 	cin>>n;
 
-	vector<vector<int>> arr;
+	vector<vector<int>> arr(n,vector<int>(n,0));
 
 	for(int i=0;i<n;i++)
 	{
-		vector<int> temp;
 			string c;
-			getline(cin,c);
+			cin>>c;
+			// cout<<nc<<"\n";
 		for(int j=0;j<n;j++)
 		{
-			temp.push_back(c[j]-'0');
+			arr[i][j]=c[j]-'0';
 		}
-		arr.push_back(temp);
 	}
 
-	for(int i=0;i<n;i++)
-	{
-		for(int j=0;j<n;j++)
-		{
-			cout<<arr[i][j];
-		}
-		cout<<"\n";
-	}
+	// for(int i=0;i<n;i++)
+	// {
+	// 	for(int j=0;j<n;j++)
+	// 	{
+	// 		cout<<arr[i][j];
+	// 	}
+	// cout<<"\n";
+	// }
+
+
 
 	candidate(arr);
+	}
 
 
-}
+	int main(){
+
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	#endif
+
+	solve();
+
+	}
 
 
-int main(){
 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
-    #endif
-
-    solve();
-
-}
