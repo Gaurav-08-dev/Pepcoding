@@ -30,7 +30,7 @@ bool duplicates(string str)
         }
     }
     return false;
-    
+        
 }
 
 void solve()
