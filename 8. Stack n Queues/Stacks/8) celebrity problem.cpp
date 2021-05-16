@@ -56,11 +56,6 @@
 
 	cout<<cand<<"\n";
 	}
-
-
-
-
-// TWO POINTER APPROACH 
 	
 	void solve()
 	{

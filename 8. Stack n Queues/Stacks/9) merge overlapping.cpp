@@ -10,7 +10,7 @@ void merge(vector<pair<int ,int >> &p)
 	for(int i=1;i<p.size();i++)
 	{
 		pair<int,int> p1=p[i];
-		cout<<"stack "<<sp.top().first<< " "<< sp.top().second<<"\n";
+		// cout<<"stack "<<sp.top().first<< " "<< sp.top().second<<"\n";
 
 		if(p1.first <=sp.top().second)
 		{

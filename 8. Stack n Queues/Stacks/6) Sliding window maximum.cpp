@@ -35,12 +35,11 @@ void sliding_maximum(vector<int> &arr,int k)
 		{
 			j=i;
 		}
-
 		while(i+k>m[j])
 		{
 			j=m[j];
 		}
-		cout<<arr[j]<<"\n";
+		cout<<arr[j]<<" ";
 	}
 
 }
