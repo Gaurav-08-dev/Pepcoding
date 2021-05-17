@@ -1,38 +1,43 @@
+// for problems where movements are given :
+// identify source and destination and intermediates
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
-string codes[10]={"","","abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz" };
-
-vector<string> get_str(string s)
+vector<string> get_str(int n)
 {
-
-	if(s.size()==0)
+	if(n<=0)
 	{
 		vector<string> bres;
+		if(n==0)
+		{
 		bres.push_back("");
+		}
 		return bres;
 	}
 
-	int index=s.at(0)-'0';
-	string code=codes[index];
-	string ros=s.substr(1);
+	vector<string> ans;
 
-	vector<string> rres=get_str(ros);
-	vector<string> mres;
 
-	for(int i=0;i<code.size();i++)
+
+	for(int jump=1; jump<=3 and n-jump>=0;jump++)
 	{
-		char ch=code.at(i);
-
+		vector<string> rres=get_str(n-jump);
+		// for(auto s: rres)
+		// {
+		// 	cout<<s;
+		// }
 		for(auto s: rres)
 		{
-			mres.push_back(ch+s);
+
+			ans.push_back(to_string(jump) + s);
 		}
 	}
-
-	return mres;
-
+	return ans;
 }
+
 
 int main()
 {
@@ -42,8 +47,10 @@ int main()
     #endif
 
 
-    string s;
+    int s;
     cin >> s;
+
+
     vector<string> ans = get_str(s);
     int cnt = 0;
 

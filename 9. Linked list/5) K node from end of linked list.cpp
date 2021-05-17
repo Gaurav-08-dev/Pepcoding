@@ -62,6 +62,39 @@ public:
 
 	}
 
+	void addAt(int index,int val)
+	{
+		if(index<0 or index>size)
+		{
+			cout<<"Invalid"<<"\n";
+			return;
+		}
+		else if(index==0)
+		{
+			addFirst(val);
+		}
+		else if(index==size)
+		{
+			addLast(val);
+		}
+		else
+		{
+			
+			node* temp=head;
+			for(int i=0;i<index-1;i++)
+			{
+				temp=temp->next;
+			}
+			node* N=new node();
+			N->data=val;
+			N->next=NULL;
+			N->next=temp->next;
+			temp->next=N;
+			size++;
+		}
+
+	}
+
 	int size1()
 	{
 		return size;
@@ -99,33 +132,76 @@ public:
 	}
 
 
-	void addAt(int val,int index)
+	int getAt(int index)
+	{
+		if(index<0 or index>=size)
+		{
+			cout<<"Invalid Arguments"<<"\n";
+			return -1;
+		}
+		if(size==0)
+		{
+			cout<<"List is empty"<<"\n";
+			return -1;
+		}
+		node* t=head;
+		for(int i=0;i<index;i++)
+		{
+			t=t->next;
+		}
+
+		return t->data;
+
+	}
+
+
+
+
+
+
+
+	void removeFirst()
+	{
+		if(size==0)
+		{
+			cout<<"List empty"<<"\n";
+			return ;
+		}
+
+		head=head->next;
+		size--;
+	}
+
+	void removeLast()
+	{
+		if(size==0)
+		{
+			cout<<"List empty"<<"\n";
+			return ;
+		}
+
+		node* t=head;
+		for(int i=0;i<size-2;i++)
+		{
+			t=t->next;
+		}
+		last=t;
+		t->next=NULL;
+		size--;
+	}
+
+	int kNode()
 	{
 		
 	}
-
-	int getAt(int index)
-	{
-
-	}
-
-	int removeFirst()
-	{}
-
-	int removeLast()
-	{}
-
-	int removeAt()
-	{}
+	// int removeAt()
+	// {}
 
 };
 
 int main(){
 
-    // #ifndef ONLINE_JUDGE
-    // freopen("input.txt","r",stdin);
-    // freopen("output.txt","w",stdout);
-    // #endif
+
 
     linkedList *ll=new linkedList();
     ll->addFirst(1);
@@ -133,10 +209,5 @@ int main(){
     ll->addLast(13);
     ll->addFirst(11);
     ll->display();
-    cout<<"\n"<<ll->size1();
-    cout<<"\n"<<ll->getFirst();
-    cout<<"\n"<<ll->getlast();
-
-
-
+    cout<<"\n";
 }
