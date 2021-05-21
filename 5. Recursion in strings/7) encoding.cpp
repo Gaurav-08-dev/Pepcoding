@@ -21,7 +21,7 @@ void printEncoding(string str, string asf){
     char ch1= (char)(ch + 'a' - 1);
     string rstr=str.substr(1);
     printEncoding(rstr,asf + ch1);
-    cout<<"here"<<"\n";
+    // cout<<"here"<<"\n";
     // cout<<str.size()<<"\n";
     if(str.size()>1)
     {

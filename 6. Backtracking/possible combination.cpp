@@ -95,10 +95,10 @@ void solve(int cb,int tb,string asf)
 }
 int main(){
 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt","r",stdin);
-    freopen("output.txt","w",stdout);
-    #endif
+    // #ifndef ONLINE_JUDGE
+    // freopen("input.txt","r",stdin);
+    // freopen("output.txt","w",stdout);
+    // #endif
 
     // solve(0,4,0,"");
     // select_2_boxes(0,4,0,"");

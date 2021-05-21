@@ -84,7 +84,7 @@ void nqueen(vector<vector<int>> &board,int sr,int sc,int qpsf,string asf)
 		return;
 	}
 
-	if(sc+1<board[0].size()) //nect col is valid
+	if(sc+1<board[0].size()) //next col is valid
 	{
 		if(isvalidtoplace(board,sr,sc)==true)
 		{
