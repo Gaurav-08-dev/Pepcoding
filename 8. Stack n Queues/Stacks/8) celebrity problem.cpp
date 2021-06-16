@@ -28,7 +28,6 @@
 			// j is not celebrity
 			s.push(i);
 		}
-
 	}
 
 	int cand=s.top();
@@ -74,7 +73,6 @@
 			arr[i][j]=c[j]-'0';
 		}
 	}
-
 	// for(int i=0;i<n;i++)
 	// {
 	// 	for(int j=0;j<n;j++)
@@ -84,13 +82,12 @@
 	// cout<<"\n";
 	// }
 
-
-
 	candidate(arr);
 	}
 
 
-	int main(){
+	int main()
+	{
 
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt","r",stdin);

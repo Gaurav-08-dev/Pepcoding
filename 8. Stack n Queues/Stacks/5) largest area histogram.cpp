@@ -8,7 +8,6 @@ vector<int> rsi(vector<int> &arr)
 	vector<int> ans(n,n);
 	stack<int> s;
 	s.push(0);
-
 	for(int i=1;i<n;i++)
 	{
 		while(s.size()>0 and arr[s.top()]>arr[i])
@@ -36,8 +35,6 @@ vector<int> lsi(vector<int> &arr)
 		}
 		s.push(i);
 	}
-
-
 	return result;
 }
 

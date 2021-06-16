@@ -31,8 +31,6 @@ vector<int> stock(vector<int> &arr)
 	{
 		result[i]=i-result[i];
 	}
-
-
 	return result;	
 }
 
