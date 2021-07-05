@@ -28,7 +28,6 @@ int fib_tab(int n,vector<int> &dp) //tabulation
     }
 
     return dp[n];
-
 }
 
 int main(){
