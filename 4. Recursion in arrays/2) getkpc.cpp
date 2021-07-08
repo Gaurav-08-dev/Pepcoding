@@ -31,6 +31,12 @@ vector<string> get_str(string s)
 		}
 	}
 
+	for(auto i: mres)
+	{
+		cout<<i<<" ";
+	}
+	cout<<"\n";
+
 	return mres;
 
 }

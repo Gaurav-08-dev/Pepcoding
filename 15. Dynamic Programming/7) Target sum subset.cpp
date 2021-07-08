@@ -25,6 +25,7 @@ int targetSum_mem(vector<int> &arr,int target,int index,vector<vector<int>> &dp)
 	return dp[index][target]=res;
 }
 
+
 // recursive
 bool targetSum(vector<int> &arr,int target,int index)
 {
@@ -44,7 +45,6 @@ bool targetSum(vector<int> &arr,int target,int index)
 }
 
 // tabulation
-
 bool targetSum_tab1(vector<int> &arr,int target)
 {
     int n=arr.size()+1;
