@@ -1,3 +1,1 @@
-v w x 
-tv tw tx uv uw ux 
-[tv, tw, tx, uv, uw, ux]
+[h1v1, v1h1, d1]

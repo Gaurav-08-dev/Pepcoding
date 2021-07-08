@@ -42,7 +42,6 @@ vector <string> getMazePaths(int sr, int sc, int dr, int dc)
     }
 
     // Diagonal
-
     for(int jumps=1;jumps+sc<=dc and jumps+sr<=dr;jumps++)
     {
 

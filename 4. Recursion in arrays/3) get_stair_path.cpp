@@ -8,7 +8,7 @@ using namespace std;
 
 vector<string> get_str(int n)
 {
-	if(n<=0)
+	if(n==0)
 	{
 		vector<string> bres;
 		if(n==0)
@@ -27,14 +27,21 @@ vector<string> get_str(int n)
 		vector<string> rres=get_str(n-jump);
 		// for(auto s: rres)
 		// {
-		// 	cout<<s;
+		// 	cout<<s<<" ";
 		// }
+		// cout<<"\n\n";
 		for(auto s: rres)
 		{
 
 			ans.push_back(to_string(jump) + s);
 		}
 	}
+
+		// for(auto i: ans)
+		// {
+		// 	cout<<i<<",";
+		// }
+		// cout<<"\n";
 	return ans;
 }
 
