@@ -21,8 +21,8 @@ void floodfill(vector<vector<int>> &maze,int sr,int sc,int n,int m,string asf)
 
 	for(int dir=0;dir<rdir.size();dir++)
 	{
-		int rr= sr + rdir[dir];
-		int cc= sc + cdir[dir];
+		int rr= sr + rdir[dir]; // next row
+		int cc= sc + cdir[dir]; // next column
 		char ch= moves[dir];
 		// cout<<ch<<"\n";
 		if(rr>=0 and cc>=0 and rr<=n and cc<=m and maze[rr][cc]!=1)
