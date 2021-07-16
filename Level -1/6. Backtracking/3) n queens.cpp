@@ -107,7 +107,7 @@ void nqueen(vector<vector<int>> &board,int sr,int sc,int qpsf,string asf)
 	}
 }
 
-// ALTERNATE APPROACH
+// ALTERNATE APPROACH -> LEVEL & Option method
 
 void queen2(vector<vector<int>> &board,int row,string asf)
 {
@@ -128,6 +128,130 @@ void queen2(vector<vector<int>> &board,int row,string asf)
 		}
 	}
 }
+
+
+
+/*  LEETCODE SUBMISSION */
+
+/* O(n^2) method */
+
+bool isvalid(int row, int col, vector<string> board,vector<vector<string>> &ans,int n)
+{
+	//upper diagonal 
+        int diagUpRow=row;
+        int diagUpCol=col;
+        
+        while(row>=0 and col>=0)
+        {
+            if(board[row][col]=='Q') return false;
+            row--;
+            col--;
+        }
+        
+        //left row
+        row=diagUpRow;
+        col=diagUpCol;
+        
+        while(col>=0)
+        {
+            if(board[row][col]=='Q') return false;
+            col--;
+        }
+        
+        //lower diagonal
+        row=diagUpRow;
+        col=diagUpCol;
+        
+        while(row<n and col>=0)
+        {
+            if(board[row][col]=='Q') return false;
+            row++; col--;
+        }
+        
+        return true;
+
+}
+
+void solve(int n,vector<string> &board,vector<vector<string>> &ans, int col)
+{
+	if(col==n)
+	{
+		ans.push_back(board);
+		return;
+	}
+	for(int row=0;row<n;row++)
+	{
+		if(isvalid(row,col,board,n))
+		{
+			board[row][col]='Q';
+			solve(n,board,ans,col+1);
+			board[row][col]='.';
+		}
+	}
+}
+
+
+
+vector<vector<string>> solveNQueens(int n) 
+{   
+	vector<vector<string>> ans;
+	vector<string> board(n);
+	string s(n,'.');
+
+	for(int i=0;i<n;i++)
+	{
+		board[i]=s;
+	}
+
+    solve(0,board,ans,n);
+    return ans;
+}
+
+/************ EFFICIENT METHOD USING HASHING *********/
+  void solve(int col,vector<string> &board,vector<vector<string>> &ans,int n,vector<int> &leftRow,vector<int> &upperDiagonal,vector<int> &lowerDiagonal) 
+    {
+        if(col==n)
+        {
+            ans.push_back(board);
+            return;
+        }
+        for(int row=0;row<n;row++)
+        {
+            if(leftRow[row]==0 and upperDiagonal[n-1 + col - row]==0 and lowerDiagonal[row + col]==0)
+            {
+                board[row][col]='Q';
+                leftRow[row]=1;
+                lowerDiagonal[row + col]=1;
+                upperDiagonal[n-1 + col - row]=1;
+                solve(col+1,board,ans,n,leftRow,upperDiagonal,lowerDiagonal);
+                board[row][col]='.';
+                leftRow[row]=0;
+                lowerDiagonal[row + col]=0;
+                upperDiagonal[n-1 + col - row]=0;
+            }
+        }
+    }
+	
+vector<vector<string>> solveNQueens(int n) {
+        
+        vector<vector<string>> ans;
+        vector<string> board(n);
+        string s(n,'.');
+        
+        for(int i=0;i<n;i++)
+        {
+            board[i]=s;
+        }
+        
+		
+       vector<int> leftRow(n,0), upperDiagonal(2*n-1,0), lowerDiagonal(2*n-1,0);
+        solve(0,board,ans,n,leftRow,upperDiagonal,lowerDiagonal);
+        return ans;
+    }
+
+
+
+
 
 
 int main(){

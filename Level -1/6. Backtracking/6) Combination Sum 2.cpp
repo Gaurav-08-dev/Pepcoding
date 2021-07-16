@@ -1,7 +1,16 @@
+/*
+
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+Each number in candidates may only be used once in the combination.
+
+*/
+
+
 /* brute force is based on combination sum 1; */
 
 // the answer will be stored in set of list to avoid any duplicate combination 
-// when we pick up elememt we will increase index 
+// when we pick up elememt & increase index 
+
 
 // efficient method
 
