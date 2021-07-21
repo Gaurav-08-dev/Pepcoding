@@ -208,6 +208,7 @@ vector<vector<string>> solveNQueens(int n)
 }
 
 /************ EFFICIENT METHOD USING HASHING *********/
+
   void solve(int col,vector<string> &board,vector<vector<string>> &ans,int n,vector<int> &leftRow,vector<int> &upperDiagonal,vector<int> &lowerDiagonal) 
     {
         if(col==n)
@@ -223,7 +224,9 @@ vector<vector<string>> solveNQueens(int n)
                 leftRow[row]=1;
                 lowerDiagonal[row + col]=1;
                 upperDiagonal[n-1 + col - row]=1;
+
                 solve(col+1,board,ans,n,leftRow,upperDiagonal,lowerDiagonal);
+                
                 board[row][col]='.';
                 leftRow[row]=0;
                 lowerDiagonal[row + col]=0;

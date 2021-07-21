@@ -4,7 +4,7 @@ using namespace std;
 
 // ci -> current item ti-> total item
 void perm(vector<int> &boxes,int ci,int ti)
-{
+{			
 	if(ci>ti)
 	{
 		for(auto i:boxes)
