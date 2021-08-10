@@ -36,6 +36,52 @@ vector<int> spiral(vector<vector<int>> &arr)
 	return ans;
 }
 
+// normal approach
+void nspiral(vector<vector<int>> &arr)
+{
+	int minc=0,minr=0, maxc=arr[0].size()-1, maxr=arr.size()-1;
+	
+	int size=arr.size() * arr[0].size();
+	int count=0;
+
+	while(count < size)
+	{
+		// left wall
+
+		for(int i=minr;i<=maxr and count < size;i++)
+		{
+			cout<<arr[i][minc]<<"\n";
+		}
+		minc++;
+
+		// bottom wall
+
+		for(int i=minc;i<=maxc and count< size;i++)
+		{
+			cout<<arr[maxr][i]<<"\n";
+		}
+		maxr--;
+
+		// right wall
+
+		for(int i=maxr;i>=minr;i--)
+		{
+			cout<<arr[i][maxc]<<"\n";
+		}
+		maxc--;
+
+		// top wall
+
+		for(int i=maxc;i>=minc;i--)
+		{
+			cout<<arr[minr][i]<<"\n";
+		}
+		minr++;
+
+	}
+}
+
+
 void print(vector<int> &arr)
 {
 	for(int i=0;i<arr.size();i++)
@@ -51,10 +97,10 @@ void solve()
 	cin>>n>>m;
 
 	vector<vector<int>> arr;
-	for(int i=0;i<m;i++)
+	for(int i=0;i<n;i++)
 	{
 		vector<int> temp;
-		for(int j=0;j<n;j++)
+		for(int j=0;j<m;j++)
 		{
 			int x;
 			cin>>x;

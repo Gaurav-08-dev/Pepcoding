@@ -42,8 +42,8 @@ bool check1(vector<vector<char>>& board)
                         return true;
                     else
                        board[i][j]='.';
+                    }
                 }
-            }
             return false;
             }
         }

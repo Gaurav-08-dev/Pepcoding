@@ -207,7 +207,7 @@ vector<vector<string>> solveNQueens(int n)
     return ans;
 }
 
-/************ EFFICIENT METHOD USING HASHING *********/
+/************ EFFICIENT METHOD USING HASHING *********/ /* also called branch and bound */
 
   void solve(int col,vector<string> &board,vector<vector<string>> &ans,int n,vector<int> &leftRow,vector<int> &upperDiagonal,vector<int> &lowerDiagonal) 
     {
