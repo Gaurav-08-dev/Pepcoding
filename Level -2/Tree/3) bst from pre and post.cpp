@@ -1,47 +1,33 @@
-public static TreeNode construct(int[] inord,ArrayList<Integer> lvl,int instart,int inend)
+TreeNode *build(vector<int> &pre, vector<int> &post,int prestart,int preend,int poststart,int postend)
+{
+    if(prestart == preend)
+        return new TreeNode(pre[prestart]);
+        
+    if(prestart > preend)
+        return nullptr;
+        
+    TreeNode* root=new TreeNode(pre[prestart]);
+    
+    int element=pre[prestart+1];
+    int index=poststart;
+    
+    while(element!=post[index])
     {
-        if(lvl.size()==0) return null;
-        
-        TreeNode root=new TreeNode(lvl.get(0));
-        int index=instart;
-        
-        HashSet<Integer> set=new HashSet<>();
-        
-        while(inord[index]!=lvl.get(0))
-        {
-            set.add(inord[index]);
-            index++;
-        }
-        
-        ArrayList<Integer> llvl=new ArrayList<>();
-        ArrayList<Integer> rlvl=new ArrayList<>();
-        
-        for(int i=1;i<lvl.size();i++)
-        {
-            int val=lvl.get(i);
-            
-            if(set.contains(val))
-            {
-                llvl.add(val);
-            }
-            else
-            {
-                rlvl.add(val);
-            }
-        }
-        
-        root.left=construct(inord,llvl,instart,index-1);
-        root.right=construct(inord,rlvl,index+1,inend);
-        
-        return root;
+        index++;
     }
-  public static TreeNode buildTree(int[] inord, int[] level){
-ArrayList<Integer> lvl=new ArrayList<>();
-        
-        for(int val: level)
-        {
-            lvl.add(val);
-        }
-        
-        return construct(inord,lvl,0,level.length-1);
-  }
+    
+    int count=index - poststart +1;
+    
+    root->left=build(pre,post,prestart +1,prestart+count,poststart,index);
+    root->right=build(pre,post,prestart+ count + 1,preend,index+1,preend-1);
+    
+    return root;
+    
+}
+TreeNode *constructFromPrePost(vector<int> &pre, vector<int> &post)
+{
+    if(pre.size()==0)
+        return nullptr;
+    
+    return build(pre,post,0,pre.size()-1,0,post.size()-1);
+}
