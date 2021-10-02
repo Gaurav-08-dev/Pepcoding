@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// Representation using adjacencey list
+// Representation using adjacencey matrix
 void solve()
 {
 	int n,m;
@@ -43,15 +43,16 @@ void adjacency_list()
 
 
 		// if it's undirected graph
+
 		// adj[u].push_back(v);
 		// adj[v].push_back(u);
 
 		// if it's directed graph
+		
 		// adj[u].push_back(v);
 
 
 		// if it's weighted graph
-
 		adj[u].push_back(make_pair(v,wt));
 		adj[v].push_back(make_pair(u,wt));
 	}

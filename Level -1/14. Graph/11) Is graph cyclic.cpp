@@ -37,7 +37,8 @@ bool bfsForcycle(vector<pair<int,int>> graph[],int src,vector<bool> &visited)
 }
 
 // method 1 using BFS
-/*bool bfsForcycle(vector<pair<int,int>> graph[],int src,vector<int> &visited)
+/*
+bool bfsForcycle(vector<pair<int,int>> graph[],int src,vector<int> &visited)
 {
 	queue<int> q;
 

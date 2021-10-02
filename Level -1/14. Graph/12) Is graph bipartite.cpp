@@ -3,8 +3,38 @@ using namespace std;
 
 #define pii pair<int,int>
 
+
 // using BFS
-bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
+/*bool bipartite(int src,vector<vector<int>> &graph,vector<int> &color)
+{
+    color[src]=1;
+    queue<int> q;
+    q.push(src);
+    
+    while(!q.empty())
+    {
+        int node=q.front(); q.pop();
+        
+        for(auto it:graph[node])
+        {
+            if(color[it]==-1)
+            {
+                color[it]=1 - color[node];
+                q.push(it);
+            }
+            else if(color[it]==color[node])
+            {
+                return false;
+            }
+        }
+    }
+    
+    return true;
+}
+*/
+
+ /* using BFS - 2*/   
+bool isBipartiteBFS(vector<pair<int,int>> graph[],int src,vector<int> &color)
 {
 	queue<pair<int,int>> q;
 
@@ -15,13 +45,13 @@ bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
 		pii rem=q.front();
 		q.pop();
 
-		if(visited[rem.first]!=-1)
+		if(color[rem.first]!=-1)
 		{
 			// already discovered
 			
 			// 1. if again discovered with same level then continue
 
-			if(visited[rem.first]==rem.second)
+			if(color[rem.first]==rem.second)
 			{
 				continue;
 			}
@@ -33,13 +63,13 @@ bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
 			}
 		}
 
-		visited[rem.first]=rem.second;
+		color[rem.first]=rem.second;
 
 		for(auto it: graph[rem.first])
 		{
 			int nbr=it.first;
 
-			if(visited[nbr]==-1)
+			if(color[nbr]==-1)
 			{
 				q.push({nbr,rem.second+1});
 			}
@@ -52,24 +82,24 @@ bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
 
 // using DFS
 
-bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
+bool isBipartiteDFS(vector<pair<int,int>> graph[],int src,vector<int> &color)
 {
-	if(visited[src]==-1)visited[src]=1;
+	if(color[src]==-1)color[src]=1;
 
 	for(auto it: graph[src])
 	{
 		int nbr=it.first;
 
-		if(visited[nbr]==-1 )
+		if(color[nbr]==-1 )
 		{
-			visited[nbr]=1-visited[src];
+			color[nbr]=1-color[src];
 
-			if(!isBipartiteComp(graph,nbr,visited))
+			if(!isBipartiteDFS(graph,nbr,color))
 			{
 				return false;
 			}
 		}
-		else if(visited[nbr]==visited[src])
+		else if(color[nbr]==color[src])
 		{
 			return false;
 		}
@@ -78,15 +108,16 @@ bool isBipartiteComp(vector<pair<int,int>> graph[],int src,vector<int> &visited)
 	return true;
 }
 
+
 bool isBipartite(vector<pair<int,int>> graph[],int n)
 {
-	vector<int> visited(n,-1);
+	vector<int> color(n,-1);
 
 	for(int i=0;i<n;i++)
 	{
-		if(visited[i]==-1)
+		if(color[i]==-1)
 		{
-			bool res=isBipartiteComp(graph,i,visited);
+			bool res=isBipartiteDFS(graph,i,color);
 			if(res==false)
 			{
 				return false;
@@ -95,6 +126,7 @@ bool isBipartite(vector<pair<int,int>> graph[],int n)
 	}
 	return true;
 }
+
 
 void solve()
 {

@@ -1,10 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void BFS(int n,vector<int> graph[])
+void BFS(int n,vector<int> graph[],vector<bool> &visited)
 {
-	vector<int> visited(n,0);
-
 	queue<int> q;
 	q.push(graph[0][0]);
 	visited[graph[0][0]]=1;
@@ -16,7 +14,7 @@ void BFS(int n,vector<int> graph[])
 		cout<<node<<" ";
 
 		for(auto it: graph[node])
-		{
+		{  
 			if(!visited[it])
 			{
 				// cout<<"it="<<it<<"\n";
@@ -55,10 +53,16 @@ void solve()
 		}
 		cout<<"\n";
 	}
-	
+	vector<bool> visited(n);
 	cout<<"\n";
 	cout<<"BFS: ";
-	BFS(n,graph);
+	for(int i=0;i<n;i++){
+		if(!visited[i])
+		{
+			BFS(n,graph,visited);	
+		}
+	}
+
 }
 
 int main(){

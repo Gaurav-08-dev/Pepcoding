@@ -13,7 +13,7 @@ void topo(int src,stack<int> &s,vector<int> adj[],vector<int> &visited)
 	     }
 	     s.push(src);
 	 }
-vector<int> topoSort(int V, vector<int> adj[]) 
+	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    stack<int> s;
 	    vector<int> visited(V,0);
@@ -38,54 +38,55 @@ vector<int> topoSort(int V, vector<int> adj[])
 
 /* *********************************************************************************** */
 
-// using bfs
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
-	   // Find indegree of each node
-	   vector<int> indegree(V,0);
-	   for(int i=0;i<V;i++)
-	   {
-	       for(auto it: adj[i])
-	       {
-	           indegree[it]++;
-	       }
-	   }
-	   
-	   // take a queue
-	   
-	   queue<int> q;
-	   for(int i=0;i<V;i++)
-	   {
-	       if(indegree[i]==0)
-	       {
-	           q.push(i);
-	       }
-	   }
-	   
-	   vector<int> visited(V,0);
-	   vector<int> ans;
-	   while(!q.empty())
-	   {
-	       int node=q.front(); q.pop();
-	       ans.push_back(node);
-	       for(auto it: adj[node])
-	       {
-	           indegree[it]--;
-	           if(indegree[it]==0)
-	           {
-	               q.push(it);
-	           }
-	       }
-	   }
-	    return ans;
-	}
+// using bfs -> Kahn's algorithm
+
+vector<int> topoSort(int V, vector<int> adj[]) 
+{
+   // Find indegree of each node
+   vector<int> indegree(V,0);
+   for(int i=0;i<V;i++)
+   {
+       for(auto it: adj[i])
+       {
+           indegree[it]++;
+       }
+   }
+   
+   // take a queue
+   
+   queue<int> q;
+   for(int i=0;i<V;i++)
+   {
+       if(indegree[i]==0)
+       {
+           q.push(i);
+       }
+   }
+   
+   vector<int> visited(V,0);
+   vector<int> ans;
+   while(!q.empty())
+   {
+       int node=q.front(); q.pop();
+       ans.push_back(node);
+       for(auto it: adj[node])
+       {
+           indegree[it]--;
+           if(indegree[it]==0)
+           {
+               q.push(it);
+           }
+       }
+   }
+    return ans;
+}
 
 
 
 
 	/* Driver Code */
 
-	void adjacency_list()
+void adjacency_list()
 {
 	int n;  // no. of nodes
 	int m; // no. of edges

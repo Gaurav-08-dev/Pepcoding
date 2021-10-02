@@ -44,7 +44,6 @@ vector<string> gss(string s){
 
     cout<<"\n"<<"\n"<<"\n";
 
-
     return ans;
 }
 
