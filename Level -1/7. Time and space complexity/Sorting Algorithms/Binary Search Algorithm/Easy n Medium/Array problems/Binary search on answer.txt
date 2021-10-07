@@ -1,0 +1,6 @@
+Binary search on answer concept
+
+Binary search can also be applied on unsorted array.
+	find the criteria for below:
+		1) if mid is the answer
+		2) move to left or right
