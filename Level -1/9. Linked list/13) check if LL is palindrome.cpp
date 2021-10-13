@@ -84,3 +84,44 @@ mid.next=head2;
 
 return res;
 }
+
+
+
+/***************** USING FLOYD's CYCLE DETECTION ********************/
+bool isPalindrome(ListNode* head) {
+        
+        ListNode* slow=head, *fast=head, *prev,*curr;
+        
+        while(fast and fast->next)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        
+        prev=slow,slow=slow->next,prev->next=NULL;
+        
+        while(slow)
+        {
+            curr=slow->next;
+            slow->next=prev;
+            prev=slow;
+            slow=curr;
+        }
+        
+        fast=head,slow=prev;
+        
+        while(slow)
+        {
+            if(fast->val!=slow->val)
+            {
+                return false;
+            }
+            else
+            {
+                fast=fast->next; 
+                slow=slow->next;
+            }
+        }
+        
+        return true;
+    }

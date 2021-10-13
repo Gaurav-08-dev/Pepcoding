@@ -196,7 +196,7 @@ public:
 		return temp;
 	}
 
-
+    /********************* DATA ITERATIVE *********************/
 	void reverse()
 	{
 		int left=0;
@@ -216,6 +216,7 @@ public:
 		}
 	}
 
+	/*************** POINTER ITERATIVE ********************/
 	void reversePI()
 	{
 		node* prev=NULL;

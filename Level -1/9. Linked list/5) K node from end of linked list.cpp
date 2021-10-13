@@ -190,10 +190,34 @@ public:
 		size--;
 	}
 
-	int kNode()
-	{
-		
-	}
+
+
+
+
+	/******************* Kth NODE FROM LAST **********************/
+	   int kthFromLast(int k){
+      // write your code here
+      
+      
+
+      Node fast=head;
+      Node slow=head;
+      
+      for(int i=0;i<k;i++)
+      {
+        fast=fast.next;
+      }
+      
+      while(fast.next!=null)
+      {
+          slow=slow.next;
+          fast=fast.next;
+      }
+      
+      return slow.data;
+      
+    }
+  }
 	// int removeAt()
 	// {}
 

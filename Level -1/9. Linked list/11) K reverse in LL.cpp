@@ -1,41 +1,30 @@
-LinkedList prev=null;
-
-while(this.size>0)
-{
-	LinkedList curr=new LinkedList();
-
-	if(this.size>=k)
-	{
-		for(int i=0;i<k;i++)
-		{
-			int data=this.getFirst();
-			this.removeFirst();
-			curr.addFirst(data);
-		}
-	}
-	else
-	{
-		while(this.size=0)
-		{
-			int data=getLast();
-			this.removeLast();
-			curr.addLast(data);
-		}
-	}
-
-	if(prev==null)
-	{
-		prev=curr;
-	}
-	else
-	{
-		prev.tail.next=curr.head;
-		prev.tail=curr.tail;
-		prev.size=curr.size;
-	}
-
-}
-
-this.size=prev.size;
-this.head=prev.head;
-this.tail=prev.tail;
+ListNode* reverse(ListNode* head,ListNode* ptr){
+        
+        ListNode* curr=head;
+        ListNode* prev=NULL;
+        
+        while(curr!=ptr)
+        {
+            ListNode* next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        // cout<<prev->val<<"\n";
+        return prev;
+    }
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        
+        
+        ListNode* ptr=head;
+        
+        for(int i=0;i<k;i++)
+        {
+            if(!ptr) return head;
+            ptr=ptr->next;
+        }
+        // cout<<"ptr-> "<<ptr->val<<" ";
+        ListNode* ans=reverse(head,ptr);
+        head->next=reverseKGroup(ptr,k);
+        return ans;
+    }
