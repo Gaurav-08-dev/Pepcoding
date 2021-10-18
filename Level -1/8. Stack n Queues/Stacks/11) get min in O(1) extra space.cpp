@@ -59,6 +59,8 @@ bool Stack:: isEmpty()
 }
 
 
+/***************** getMin() in O(1) SPACE *****************/
+
  void Stack:: push(int x)
  {
     if(isFull())
@@ -98,7 +100,6 @@ bool Stack:: isEmpty()
     	int y=s[top];
     	top--;
     	return y;
-    
  }
 
  int Stack::peek()
@@ -116,7 +117,7 @@ bool Stack:: isEmpty()
         return s[top];
     
  }
-
+/**********************************************************************/
  void Stack:: display()
  {
     for(int i=top;i>=0;i--)
@@ -141,7 +142,7 @@ class getmin : public Stack
  };
 
 
-/* O(N) space approach */
+/**************** O(N) space approach *****************/
 
 /* void getmin:: push(int x)
 {

@@ -5,7 +5,6 @@ using namespace std;
 
 
 // method 2 using bfs
-
 bool bfsForcycle(vector<pair<int,int>> graph[],int src,vector<bool> &visited)
 {
 	queue<pair<int,int>> q;

@@ -3,59 +3,62 @@
 
 	void candidate(vector<vector<int>> &arr)
 	{
-	stack<int> s;
+		stack<int> s;
 
-	for(int i=0;i<arr.size();i++)
-	{
-		s.push(i);
-	}
-
-	// elimination
-	while(s.size()>1)
-	{
-		int i=s.top();
-		s.pop();
-		int j=s.top();
-		s.pop();
-
-		if(arr[i][j]==1)
+		for(int i=0;i<arr.size();i++)
 		{
-			// i is not celebrity
-			s.push(j);
-		}
-		else
-		{
-			// j is not celebrity
 			s.push(i);
 		}
-	}
 
-	int cand=s.top();
-	s.pop();
-	// cout<<cand<<"\n";
-
-	for(int i=0;i<arr[0].size();i++)
-	{
-		if(arr[cand][i]==1)
+		// elimination
+		while(s.size()>1)
 		{
-			cout<<"none"<<"\n";
-			return ;
-		}
-	}
- 
+			int i=s.top();
+			s.pop();
+			int j=s.top();
+			s.pop();
 
-	for(int i=0;i<arr.size();i++)
-	{
-		if(i!=cand and arr[i][cand]==0)
+			if(arr[i][j]==1)
+			{
+				// i is not celebrity
+				s.push(j);
+			}
+			else
+			{
+				// j is not celebrity
+				s.push(i);
+			}
+		}
+
+		int cand=s.top();
+		s.pop();
+		// cout<<cand<<"\n";
+
+
+		// check its row
+		for(int i=0;i<arr[0].size();i++)
 		{
-			cout<<"none"<<"\n";
-			return ;
+			if(arr[cand][i]==1)
+			{
+				cout<<"none"<<"\n";
+				return ;
+			}
 		}
-	}
+	 
+		// check its column
+		for(int i=0;i<arr.size();i++)
+		{
+			if(i!=cand and arr[i][cand]==0)
+			{
+				cout<<"none"<<"\n";
+				return ;
+			}
+		}
 
-	cout<<cand<<"\n";
+		cout<<cand<<"\n";
 	}
 	
+
 	void solve()
 	{
 	int n;

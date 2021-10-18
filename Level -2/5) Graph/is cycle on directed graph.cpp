@@ -65,11 +65,11 @@ bool isCyclic(int V, vector<int> adj[])
    
    int count=0;
    vector<int> visited(V,0);
-   
+   vector<int> ans;
    while(!q.empty())
    {
        int node=q.front(); q.pop();
-       
+       ans.push_back(node);
        count++;
        for(auto it: adj[node])
        {

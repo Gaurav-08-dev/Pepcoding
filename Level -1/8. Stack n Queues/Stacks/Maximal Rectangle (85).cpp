@@ -12,6 +12,7 @@
 
         for(int i=0;i<n;i++)
         {
+            // prepare array for largest area histogram
             for(int j=0;j<m;j++)
             {
                 if(matrix[i][j]=='0')

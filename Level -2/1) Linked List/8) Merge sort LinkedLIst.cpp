@@ -74,8 +74,8 @@ ListNode *mergeSort(ListNode *head)
     ListNode* head1=mid->next;
     mid->next=NULL;
     
-    head=mergeSort(head);
-    head1=mergeSort(head1);
+    head = mergeSort(head);
+    head1 = mergeSort(head1);
     
     ListNode* res=mergeTwoList(head,head1);
     

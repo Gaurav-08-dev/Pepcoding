@@ -68,6 +68,9 @@ int stack1::peek(int pos)
 		return s[top-pos+1];
 	}
 }
+
+
+// Not an actual display() for stack --- just for testing
 void stack1::display()
 {
 	int i;

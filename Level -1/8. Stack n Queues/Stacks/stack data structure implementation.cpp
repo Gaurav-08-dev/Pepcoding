@@ -8,6 +8,7 @@ using namespace std;
 basic stack funtionalities */
 
 class Stack {
+    
 private:
     static const int max=5;
     int size;
