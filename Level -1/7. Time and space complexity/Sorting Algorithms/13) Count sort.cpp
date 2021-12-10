@@ -25,7 +25,7 @@ void countSort_stable(vector<int> &arr,int min1,int max1)
     // STEP 2: Generate prefix sum array
 
     fmap[0]--;
-    for(int i=0;i<fmap.size();i++)
+    for(int i=1;i<fmap.size();i++)
     {
         fmap[i]+=fmap[i-1];
     }

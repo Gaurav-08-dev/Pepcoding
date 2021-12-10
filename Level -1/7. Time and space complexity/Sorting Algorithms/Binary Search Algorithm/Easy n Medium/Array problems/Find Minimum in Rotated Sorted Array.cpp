@@ -14,7 +14,7 @@ public:
         while(nums[start]>nums[end])
         {
             int mid=start+(end-start)/2;
-            
+                
             if(nums[mid]>nums[end])
             {
                 start=mid+1;

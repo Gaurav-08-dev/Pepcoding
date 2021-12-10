@@ -15,7 +15,7 @@
             {
                 pre.add(p.node.data);
                 p.state++;
-                st.push(new Pair(p.node.left,0);
+                st.push(new Pair(p.node.left,0));
             }
             
             else if(p.state==1)
@@ -24,7 +24,7 @@
                 in.add(p.node.data);
                 if(p.node.right)
                 {
-                    st.push(new Pair(p.node.right,0);
+                    st.push(new Pair(p.node.right,0));
                 }
                 p.state++;
             }

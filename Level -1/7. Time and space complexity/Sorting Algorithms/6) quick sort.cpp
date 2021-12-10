@@ -30,7 +30,7 @@ int partition_index(vector<int> &arr,int pivot,int low,int high)
 
 	while(i<=high)
 	{
-		if(arr[i]>=pivot)
+		if(arr[i]<=pivot)
 		{
 			swap(arr,i,j);
 			i++;

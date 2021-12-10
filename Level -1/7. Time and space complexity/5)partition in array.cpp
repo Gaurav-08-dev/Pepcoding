@@ -19,7 +19,7 @@ arr[j] = temp;
 
 void partition(vector<int> &arr,int pivot)
 {
-	int i=0,j=0,k=arr.size()-1;
+	int i=0,j=0;
 
 	while(i<arr.size())
 	{

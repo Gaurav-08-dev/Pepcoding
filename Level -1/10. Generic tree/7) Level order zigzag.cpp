@@ -35,15 +35,40 @@
         s=temp;
 }
 
-// Using one queue and one stack
 
-public static void levelOrderLinewiseZZ(Node node)
-{
-    Queue<Node> q=new ArrayDequeue<>();
-    Stack<Node> s=new Stack<>();
-    
-
-    int level=1;
-    q.push();
-}
-
+// using 1 queue
+  vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        
+        if(!root)return {};
+        
+        vector<vector<int>> ans;
+        
+        queue<TreeNode*> nodes;
+        
+        nodes.push(root);
+        
+        bool flag=false;
+        
+        while(!nodes.empty()){
+            
+            int n=nodes.size();
+            
+            vector<int> levels;
+        for(;n>0;n--){
+            TreeNode* x=nodes.front(); nodes.pop();
+            
+            if(x->left) nodes.push(x->left);
+            if(x->right) nodes.push(x->right);
+            
+            levels.push_back(x->val);            
+        }    
+            
+            if(flag) reverse(levels.begin(),levels.end());
+            
+            ans.push_back(levels);
+            flag=!flag;
+            
+        }
+        
+        return ans;
+    }

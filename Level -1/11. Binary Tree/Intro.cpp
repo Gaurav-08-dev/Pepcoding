@@ -1,6 +1,4 @@
-    #include<iostream>
-    #include<vector>
-    #include<bits/stdc++.h>
+   #include<bits/stdc++.h>
     using namespace std;
     
     // TreeNode class for a node of a Binary Search Tree

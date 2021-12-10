@@ -55,3 +55,28 @@ ArrayList<Integer> nodeToRootPath(Node node,int data)
       return new ArrayList<Integer>();
 
 }
+
+
+/******** c++ code *****/
+
+bool getPath(TreeNode* root,vector<int> &arr,int x){
+
+	if(!root) return false;
+
+	arr.push_back(root->val);
+
+	if(root->val==x){return true;}
+
+	if(getPath(root->left,arr,x) or getPath(root->right,arr,x)) return true;
+
+	arr.pop_back();
+	return false;
+}
+
+vector<int> solution :: solve(TreeNode *root, int x){
+	vector<int> arr;
+	if(root==NULL) return arr;
+
+	getPath(root,arr,x);
+	return arr;
+}

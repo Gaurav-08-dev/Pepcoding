@@ -34,4 +34,21 @@ public static class Node {
         }
 
     return root;
+
+    /***** C++ *****/
+
+    struct Node{
+        int key;
+        vector<Node*> child;
+    }
+
+    Node *newNode(int key){
+        Node *temp=new Node;
+        temp->key=key;
+        return temp;
+    }
+
+    void LevelOrderTraversal(Node* root){
+        
+    }
     

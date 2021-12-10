@@ -41,5 +41,4 @@ public static void leaf(Node node)
 		leaf(child);
 	}
 
-
 }
