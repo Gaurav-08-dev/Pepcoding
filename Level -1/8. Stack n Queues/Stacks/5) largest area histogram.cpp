@@ -83,3 +83,30 @@ int main(){
     solve();
 
 }
+
+
+/*** Another Implementation ****/
+
+int lah(vector<int> &heights){
+	stack<int> st;
+	heights.push_back(0);
+
+	int ret=0;
+
+	for(int i=0;i<heights.size();i++){
+		while(!st.empty() and heights[st.top()] >= heights[i]){
+
+			int vertical= heights[st.top()];
+			st.pop();
+
+			int right_upper_bound=st.size()>0 ? st.top():-1;
+			int horizontal=(i-right_upper_bound-1);
+
+			if(vertical * horizontal > ret) ret=vertical * horizontal;
+		}
+
+		st.push(i);
+	}
+
+	return ret;
+}
